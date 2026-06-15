@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:safepocket_project/app/auth/login_screen/login_screen_view.dart';
+import 'package:safepocket_project/app/auth/sign_in_screen/sign_in_screen_view.dart';
 import 'package:safepocket_project/app/screens/splash_screen/splash_screen_view.dart';
 
 import 'app_routes.dart';
@@ -17,6 +18,12 @@ class AppPages {
       name: AppRoutes.login,
       page: () => LoginScreenView(),
       binding: LoginScreenViewBinding(),
+    ),
+    //SignIn screen
+    GetPage(
+      name: AppRoutes.signIn,
+      page: () => SignInScreenView(),
+      binding: SignInScreenViewBinding(),
     ),
   ];
 }

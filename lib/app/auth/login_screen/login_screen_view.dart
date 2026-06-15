@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:safepocket_project/app/routes/app_routes.dart';
 import 'package:safepocket_project/app/shared/themes/app_colors.dart';
 import 'package:safepocket_project/widgets/buttons/custom_btn.dart';
 import 'package:safepocket_project/widgets/txtfield/custom_txtfield.dart';
@@ -13,6 +14,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         child: Column(
@@ -92,7 +94,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
             color: AppColors.txtcolor,
           ),
           suffixIcons: Icon(
-            Icons.remove_red_eye_rounded,
+            Icons.visibility,
             size: 28,
             color: AppColors.txtcolor,
           ),
@@ -113,7 +115,10 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
           ),
         ),
         SizedBox(height: 40),
-        CustomBtn(text: "Login"),
+        CustomBtn(
+          text: "Login",
+          onPressed: () => Get.offAndToNamed(AppRoutes.signIn),
+        ),
         SizedBox(height: 10),
         Row(
           mainAxisAlignment: .center,

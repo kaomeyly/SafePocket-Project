@@ -3,7 +3,8 @@ import 'package:safepocket_project/app/shared/themes/app_colors.dart';
 
 class CustomBtn extends StatelessWidget {
   final String text;
-  const CustomBtn({super.key, required this.text});
+  final VoidCallback? onPressed;
+  const CustomBtn({super.key, required this.text,this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CustomBtn extends StatelessWidget {
         width: double.infinity,
         height: 50,
         child: ElevatedButton(
-          onPressed: () {},
+         onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.secondary,
             shape: RoundedRectangleBorder(
