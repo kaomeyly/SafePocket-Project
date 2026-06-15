@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:safepocket_project/routes/app_routes.dart';
+import 'package:safepocket_project/app/routes/app_routes.dart';
 
-import 'routes/app_pages.dart';
+import 'app/routes/app_pages.dart';
 
 void main() {
   runApp(const MainApp());

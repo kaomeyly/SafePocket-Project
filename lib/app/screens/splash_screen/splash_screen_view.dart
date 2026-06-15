@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:safepocket_project/shared/themes/app_colors.dart';
+import 'package:safepocket_project/app/shared/themes/app_colors.dart';
 
 part 'splash_screen_binding.dart';
 part 'splash_screen_controller.dart';

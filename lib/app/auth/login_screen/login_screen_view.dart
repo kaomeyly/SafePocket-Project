@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:safepocket_project/shared/themes/app_colors.dart';
+import 'package:safepocket_project/app/shared/themes/app_colors.dart';
 import 'package:safepocket_project/widgets/buttons/custom_btn.dart';
 import 'package:safepocket_project/widgets/txtfield/custom_txtfield.dart';
 

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:safepocket_project/screens/login_screen/login_screen_view.dart';
-import 'package:safepocket_project/screens/splash_screen/splash_screen_view.dart';
+import 'package:safepocket_project/app/auth/login_screen/login_screen_view.dart';
+import 'package:safepocket_project/app/screens/splash_screen/splash_screen_view.dart';
 
 import 'app_routes.dart';
 
