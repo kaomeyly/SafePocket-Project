@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:safepocket_project/shared/themes/app_colors.dart';
 
 part 'splash_screen_binding.dart';
 part 'splash_screen_controller.dart';
@@ -18,17 +19,17 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
           fit: StackFit.expand,
           children: [
             AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 300),
               color: controller.isGreenPhase.value
-                  ? const Color(0xFF1A7A50)
+                  ? AppColors.secondary
                   : Colors.white,
             ),
 
             // Falling + growing circle — exact brand green
             Obx(() {
-              if (!controller.showCircle.value) return const SizedBox();
+              if (!controller.showCircle.value) return SizedBox();
               return AnimatedPositioned(
-                duration: const Duration(milliseconds: 550),
+                duration: Duration(milliseconds: 550),
                 curve: Curves.easeIn,
                 top:
                     size.height / 2 -
@@ -36,11 +37,11 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
                     (controller.circleTopOffset.value * (size.height / 2) / 80),
                 left: size.width / 2 - controller.circleSize.value / 2,
                 child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
+                  duration: Duration(milliseconds: 500),
                   curve: Curves.easeInOut,
                   width: controller.circleSize.value,
                   height: controller.circleSize.value,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xFF1A7A50), // exact match to screenshot
                     shape: BoxShape.circle,
                   ),
@@ -50,7 +51,7 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
 
             // Green letters sliding in on white bg
             Obx(() {
-              if (!controller.showGreenText.value) return const SizedBox();
+              if (!controller.showGreenText.value) return SizedBox();
               const letters = 'SafePocket';
               return Center(
                 child: Row(
@@ -58,7 +59,7 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
                   children: List.generate(letters.length, (i) {
                     final visible = i < controller.visibleLetterCount.value;
                     return AnimatedContainer(
-                      duration: const Duration(milliseconds: 250),
+                      duration: Duration(milliseconds: 250),
                       curve: Curves.easeOut,
                       transform: Matrix4.translationValues(
                         0,
@@ -66,11 +67,11 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
                         0,
                       ),
                       child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 250),
+                        duration: Duration(milliseconds: 250),
                         opacity: visible ? 1.0 : 0.0,
                         child: Text(
                           letters[i],
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Color(0xFF1A7A50),
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -86,15 +87,15 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
 
             // White "SafePocket" — on circle, then stays as bg goes green, slides up with wave
             Obx(() {
-              if (!controller.showCircleText.value) return const SizedBox();
+              if (!controller.showCircleText.value) return SizedBox();
               return AnimatedPositioned(
-                duration: const Duration(milliseconds: 500),
+                duration: Duration(milliseconds: 500),
                 curve: Curves.easeInOut,
                 // center text vertically: fraction * height - half text height (~20px)
                 top: size.height * controller.textTopFraction.value - 0,
                 left: 0,
                 right: 0,
-                child: const Center(
+                child: Center(
                   child: Text(
                     'SafePocket',
                     style: TextStyle(
@@ -110,7 +111,7 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
 
             // Wave
             Obx(() {
-              if (!controller.showWave.value) return const SizedBox();
+              if (!controller.showWave.value) return SizedBox();
               return Positioned(
                 bottom: 0,
                 left: 0,
@@ -127,29 +128,29 @@ class SplashScreenView extends GetView<SplashScreenViewController> {
 
             // Continue button
             Obx(() {
-              if (!controller.showButton.value) return const SizedBox();
+              if (!controller.showButton.value) return SizedBox();
               return Positioned(
                 bottom: size.height * 0.08,
                 left: size.width * 0.15,
                 right: size.width * 0.15,
                 child: AnimatedOpacity(
-                  duration: const Duration(milliseconds: 400),
+                  duration: Duration(milliseconds: 400),
                   opacity: 1.0,
                   child: ElevatedButton(
                     onPressed: controller.onContinue,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF1A7A50),
+                      backgroundColor: AppColors.secondary,
                       foregroundColor: Colors.white,
-                      minimumSize: const Size(double.infinity, 48),
+                      minimumSize: Size(double.infinity, 60),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       elevation: 0,
                     ),
-                    child: const Text(
+                    child: Text(
                       'Continue',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.3,
                       ),

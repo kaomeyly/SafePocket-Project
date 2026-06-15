@@ -67,6 +67,6 @@ class SplashScreenViewController extends GetxController {
   }
 
   void onContinue() {
-    Get.offAllNamed('/home');
+    Get.offAllNamed('/login');
   }
 }

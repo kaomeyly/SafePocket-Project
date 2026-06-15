@@ -12,6 +12,7 @@ class AppPages {
       page: () => SplashScreenView(),
       binding: SplashScreenViewBinding(),
     ),
+    //Login screen
     GetPage(
       name: AppRoutes.login,
       page: () => LoginScreenView(),
